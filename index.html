@@ -8,11 +8,14 @@
 	 <main id="app"></main>
 	 <!--ojo usar versiones iguales no mesclar min con otro-->
 	<!--permite crear componentes-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script>
 	<!--permite verlos en la web-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.js"></script>
 	
-	<script>
+	
+	<script type="text/babel">
+
 		/*crear con funciones, lo trata como constructores, recibe un objeto como parametro(props)*/
 		/*const----> no cambiamos el valor (en su mayoria usar este) 
 		 let-----> si deseamos cambiar valor .
@@ -21,15 +24,17 @@
 		function Hola(props){
 			const name = props.name;
 			
-			return React.DOM.h1({
-				id:'title',
-			},`hola ${name}`);	
+			return (
+				<h1 id = "Title">
+				Hola {name}
+		   </h1>
+			);	
 		}
 /*Crea elemento apartir de al funcion,en render, dos paramentros uno es  componente y dos donde se va a monatrAR  ese componente*/
-    const hola = React.createElement(Hola, {'name':'platzi',});
+      
 		
 		ReactDOM.render(
-		hola,
+		<Hola name= "Platzi"/>,
 		document.getElementById('app')
 		);
 		
@@ -38,13 +43,15 @@
 		setTimeout(
 		() => {
 		 ReactDOM.render(
-		 React.createElement(Hola, {name: 'suee!!!!!'}),
+		 <Hola name= "Platzi!!" />,
 			document.getElementById('app') 
-		 );
-			
+		 );	
 		},
 			1000
-		)		
+		)	
+		
+		/*tips,mayuscula para diferenciar componentes*/
+		/*dom virtual,no cambia todo, solo recarga caracteristicas,detecta dos tipos de diferencia primero tipo de nodos y despues las propiedades de los elementos*/
 	</script>
 </body>
 </html>
