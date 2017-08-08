@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>react hola mundo</title>
+</head>
+<body>
+	 <main id="app"></main>
+	 <!--ojo usar versiones iguales no mesclar min con otro-->
+	<!--permite crear componentes-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script>
+	<!--permite verlos en la web-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.js"></script>
+	
+	<script>
+		/*crear con funciones, lo trata como constructores, recibe un objeto como parametro(props)*/
+		/*const----> no cambiamos el valor (en su mayoria usar este) 
+		 let-----> si deseamos cambiar valor .
+		 interpolar, con tilde al revés ,signo de pesos y llaves el valor se rempraza por el que esta ahi---tamplate string.*/
+		
+		function Hola(props){
+			const name = props.name;
+			
+			return React.DOM.h1({
+				id:'title',
+			},`hola ${name}`);	
+		}
+/*Crea elemento apartir de al funcion,en render, dos paramentros uno es  componente y dos donde se va a monatrAR  ese componente*/
+    const hola = React.createElement(Hola, {'name':'platzi',});
+		
+		ReactDOM.render(
+		hola,
+		document.getElementById('app')
+		);
+		
+		/*en html creo una etiqueta  main que sera nuestra app*/
+		/*despues de un interval ode tiempo se cambiara contenido*/
+		setTimeout(
+		() => {
+		 ReactDOM.render(
+		 React.createElement(Hola, {name: 'suee!!!!!'}),
+			document.getElementById('app') 
+		 );
+			
+		},
+			1000
+		)		
+	</script>
+</body>
+</html>
