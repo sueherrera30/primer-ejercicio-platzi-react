@@ -35,15 +35,16 @@
       
 		class MiComponente extends React.Component {
 			constructor(props){
+				/*super props hereda propiedades del padre y llama a las propiedades de clase, aqui inicializa el estado*/
 				super(props);
 				
 				this.state = {
 					count: 0,
 				};
-				
+				/*asocia el valor de this para meterlo en contexto de contrauctor y el metodo de handleclick*/
 				this.handleClick = this.handleClick.bind(this);
 			}
-			
+			/*actualiza el estado y usa estado por que actualizara el estado, como parametro tiene un objeto  que incrementara, para ello necesitas crear constructor donde pondra estado*/
 			handleClick(){
 				this.setState({
 					count: this.state.count + 1,
